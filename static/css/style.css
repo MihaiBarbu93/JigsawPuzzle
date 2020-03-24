@@ -5,16 +5,9 @@ body, html {
     padding: 0 !important;
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> settings_part2
 .row {
     margin-right: 0 !important;
 }
-
-
 
 .logo  {
     margin-left: 2em;
@@ -72,11 +65,11 @@ h2 {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 .card-text{
     text-align: center;
     font-size: 30px;
 }
+
 .card{
     box-shadow: 0 4px 8px 0 black;
     margin: 10px;
@@ -86,9 +79,11 @@ h2 {
 .card-img-top{
     height: 200px;
 }
+
 .mb-3{
     padding: 0px;
 }
+
 .card-body{
     padding: 0.75rem;
 }
@@ -98,6 +93,7 @@ h2 {
 .category_select:hover{
     cursor: pointer;
 }
+
 i {
     transition: all 0.3s ease;
     cursor: pointer;
@@ -106,7 +102,7 @@ i {
 i:hover {
     color: dodgerblue;
 }
-=======
+
 #game-mode {
     margin: 3em auto 1em;
     color: #282828;
@@ -150,4 +146,3 @@ i:hover {
 .select-puzzle:hover {
     cursor: pointer;
 }
->>>>>>> settings_part2
