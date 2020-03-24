@@ -68,3 +68,29 @@ h2 {
     min-width: 150px;
     cursor: pointer;
 }
+
+.card-text{
+    text-align: center;
+    font-size: 30px;
+}
+.card{
+    box-shadow: 0 4px 8px 0 black;
+    margin: 10px;
+    color: white;
+    background-color: black;
+}
+.card-img-top{
+    height: 200px;
+}
+.mb-3{
+    padding: 0px;
+}
+.card-body{
+    padding: 0.75rem;
+}
+.category_select{
+    color: red;
+}
+.category_select:hover{
+    cursor: pointer;
+}
