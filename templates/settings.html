@@ -2,7 +2,7 @@
 
 {% block content%}
 
-<div class="row">
+<div class="row difficulty-row">
     <div class="col-sm-6 difficulty-container">
         <h2 class="difficulty-header">Chose the difficulty level</h2>
     </div>
@@ -12,6 +12,90 @@
         <div id="test" class="difficulty">4 x 4</div>
         <div class="difficulty">8 x 8</div>
         <div class="difficulty">12 x 12</div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="game-mode" class="col-sm-4 text-center">
+        <!-- <p class="game-mode-info">Select the game mode</p> -->
+        <form class="game-mode-form">
+            <label class="radio-inline">
+                <input type="radio" name="optradio" checked>Single Player
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio">Matchup
+            </label>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-10 text-center puzzles">
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
+        <a class="select-puzzle">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='/images/puppy.jpg')}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Caine</h5>
+                </div>
+            </div>
+        </a>
     </div>
 </div>
 
