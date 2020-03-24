@@ -155,3 +155,13 @@ i:hover {
 .category_cards{
     margin-top: 30px;
 }
+
+
+#piece {
+    transition: all 0.3s ease;
+}
+
+#piece:hover{
+    height: 75px;
+    width: 75px;
+}

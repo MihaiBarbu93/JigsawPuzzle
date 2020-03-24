@@ -40,16 +40,22 @@
         </div>
     </div>
     <div class="row" style="display: flex; justify-content: space-around; margin-top: 20px;">
-      <div class="col-8" style="border: solid; 
+      <div id="leftPanel" class="col-8" style="border: solid; 
                                 border-color: #282828; 
                                 height: 600px; 
                                 box-shadow: 0 0 10px #282828;
                                 background-color: #e0a73c;
                                 margin-right: 5px;">
+        <div id="puzzle" style="background-color: none; width: 285px; height: 285px;
+                                display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">
+                            {% for piece_id in image_info['pieces_ids'] %} 
+                            <div id="spot" style="width: 100px; height: 100px; border-color: black; border-style: solid;"></div>  
+                            {% endfor %} 
+                            </div>
                                 
         </div>
 
-      <div class="col-3" style="border: solid; 
+      <div id="rightPanel" class="col-3" style="border: solid; 
                                 border-color: #282828; 
                                 height: 600px;
                                 box-shadow: 0 0 10px #282828;
