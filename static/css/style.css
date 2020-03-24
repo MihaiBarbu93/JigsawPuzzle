@@ -132,6 +132,9 @@ i:hover {
     background-color: #282828;
     color: whitesmoke;
     margin: 30px;
+    box-shadow: 0 4px 8px 0 black;
+
+
 }
 
 .card h5 {
@@ -145,4 +148,8 @@ i:hover {
 
 .select-puzzle:hover {
     cursor: pointer;
+}
+
+.category_cards{
+    margin-top: 30px;
 }

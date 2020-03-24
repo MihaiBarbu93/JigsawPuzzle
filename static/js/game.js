@@ -15,4 +15,17 @@ const choseDifficulty = () => {
     });
 }
 
+function getCategory(){
+    let categories=document.querySelectorAll(".category_select")
+    for(let catg of categories){
+        catg.addEventListener('click',function (event) {
+            let catgName=catg.dataset.category;
+            catg.href+=catgName;
+            console.log(catg.href)
+        })
+    }
+
+}
+getCategory()
+
 choseDifficulty()
