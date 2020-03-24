@@ -48,6 +48,7 @@ function draw(m,n) {
     let w = img.naturalWidth
 
     let start_crop_col = 0
+    let start_crop_row = 0
     let dx = Math.floor(Math.random() * 200);
     let dy = Math.floor(Math.random() * 200);
 
@@ -63,4 +64,4 @@ function draw(m,n) {
         start_crop_col+=h/n;
     }}
 
-draw(4,4)
+draw(2,2)
