@@ -5,13 +5,10 @@ body, html {
     padding: 0 !important;
 }
 
-
 .row {
     margin-right: 0 !important;
 }
 
-.container-fluid {
-}
 
 .logo  {
     margin-left: 2em;
@@ -66,5 +63,49 @@ h2 {
     padding: 16px;
     width: 25%;
     min-width: 150px;
+    cursor: pointer;
+}
+
+#game-mode {
+    margin: 3em auto 1em;
+    color: #282828;
+    padding: 10px;
+    font-size: 1.4em;
+}
+
+.game-mode-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+#game-mode  input {
+    margin-right: 1em !important;
+}
+
+.game-mode-info {
+    font-weight: bold;
+}
+
+.radio-inline:hover {
+    cursor: pointer;
+}
+
+.card {
+    display: inline-block !important;
+    background-color: #282828;
+    color: whitesmoke;
+    margin: 30px;
+}
+
+.card h5 {
+    font-size: 1.8em;
+}
+
+.puzzles {
+    margin: 0 auto;
+    margin-bottom: 4em;
+}
+
+.select-puzzle:hover {
     cursor: pointer;
 }

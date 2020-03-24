@@ -2,13 +2,17 @@
 
 const choseDifficulty = () => {
 
-    difficultyOption = document.getElementsByClassName('difficulty');
+    document.addEventListener('click', function () {
 
-    for (option of difficultyOption) {
-        option.addEventListener('click', function () {
-            event.target.classList.add('selected-difficulty')
-        })
-    }
+        if (!event.target.classList.contains('difficulty')) return;
+        
+        event.target.classList.add('selected-difficulty');
+        let options = document.querySelectorAll('.difficulty');
+        for (let i = 0; i < options.length; i++) {
+            if (options[i] === event.target) continue;
+            options[i].classList.remove('selected-difficulty');
+        }
+    });
 }
 
 choseDifficulty()
