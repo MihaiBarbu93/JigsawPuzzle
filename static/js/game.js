@@ -20,12 +20,23 @@ function getCategory(){
         catg.addEventListener('click',function (event) {
             let catgName=catg.dataset.category;
             catg.href+=catgName;
-            console.log(catg.href)
         })
     }
-
 }
 getCategory()
+
+
+function getImage() {
+  let Images = document.querySelectorAll(".select-puzzle");
+  for (let img of Images) {
+    img.addEventListener("click", function(event) {
+      let imgName = img.dataset.imageName;
+      img.href += imgName ;
+    });
+  }
+}
+getImage();
+
 
 choseDifficulty()
 

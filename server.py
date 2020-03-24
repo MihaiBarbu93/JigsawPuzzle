@@ -20,9 +20,9 @@ def settings(category):
     return render_template('settings.html')
 
 
-@app.route('/game')
-def game():
-    return render_template('game.html')
+@app.route('/game/<image>')
+def game(image):
+    return render_template('game.html', image=image)
     
 
 if __name__ == '__main__':
