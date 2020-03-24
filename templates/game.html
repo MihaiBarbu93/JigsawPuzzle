@@ -45,11 +45,7 @@
                                 height: 600px; 
                                 box-shadow: 0 0 10px #282828;
                                 background-color: #e0a73c;
-                                margin-right: 5px;
-                                display: grid;
-                                grid-template-columns: 1fr 1fr 1fr 1fr;">
-                                
-                                <img id="source" src="/static/images/{{image}}.jpg" width="500" height="500">
+                                margin-right: 5px;">
         </div>
 
       <div class="col-3" style="border: solid; 
@@ -57,7 +53,10 @@
                                 height: 600px;
                                 box-shadow: 0 0 10px #282828;
                                 background-color: #e0a73c;">
-          <canvas id="myCanvas"></canvas>
+            {% for piece_id in image_info['pieces_ids'] %}
+            <img id="source" src="/{{ image_info['folder_path'] }}/{{ piece_id }}.jpeg" width="50" height="50">
+            {% endfor %}
+            <canvas id="myCanvas"></canvas>
       </div>
     </div>
 </div>

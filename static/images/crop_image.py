@@ -1,5 +1,9 @@
 from PIL import Image
 import os
+import random
+
+image_info = {}
+
 
 def cropImage(image_path, puzzle_dimensions):
     # Create folder for the pieces
@@ -18,6 +22,7 @@ def cropImage(image_path, puzzle_dimensions):
     endY = startY + piece_height
     # Iterate through rows and columns and crop image
     piece_id = 0
+    pieces_ids = []
     for row in range(PDX):
         startX = 0
         endX = startX + piece_width
@@ -26,9 +31,13 @@ def cropImage(image_path, puzzle_dimensions):
             save_pieces(cropped_piece, piece_id, folder_path)
             startX = startX + piece_width
             endX = endX + piece_width
+            pieces_ids.append(piece_id)
             piece_id += 1
         startY = startY + piece_height
         endY = endY + piece_height
+    random.shuffle(pieces_ids)
+    image_info.update({'pieces_ids': pieces_ids})
+    return image_info
 
 
 def save_pieces(cropped_piece, piece_id, folder_path):
@@ -39,12 +48,13 @@ def create_folder(image_path):
     IMG_PATH = 0
     IMG_NAME = -1
     folder_name = image_path.split('.')[IMG_PATH].split('/')[IMG_NAME].replace('\\', '')
-    pieces_folder_path = f'{folder_name}_pieces'
+    pieces_folder_path = f'static/{folder_name}_pieces'
     try:
         os.mkdir(pieces_folder_path)
     except OSError:
         print(f"Creation of the directory {pieces_folder_path} failed")
     else:
+        image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path})
         return pieces_folder_path
 
 
