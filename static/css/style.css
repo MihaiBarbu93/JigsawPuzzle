@@ -6,12 +6,14 @@ body, html {
 }
 
 
+
 .row {
     margin-right: 0 !important;
 }
 
 .container-fluid {
 }
+
 
 .logo  {
     margin-left: 2em;
@@ -93,4 +95,12 @@ h2 {
 }
 .category_select:hover{
     cursor: pointer;
+}
+i {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+i:hover {
+    color: dodgerblue;
 }
