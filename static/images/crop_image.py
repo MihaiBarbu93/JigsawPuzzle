@@ -52,7 +52,10 @@ def create_folder(image_path):
     try:
         os.mkdir(pieces_folder_path)
     except OSError:
-        print(f"Creation of the directory {pieces_folder_path} failed")
+        dif = random.randint(10, 100) + random.randint(100, 200) - random.randint(0, 100)
+        pieces_folder_path = f'static/{folder_name}_pieces{dif}'
+        os.mkdir(pieces_folder_path)
+        return pieces_folder_path
     else:
         image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path})
         return pieces_folder_path

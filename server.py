@@ -26,7 +26,7 @@ def settings(category):
 @app.route('/game/<image>')
 def game(image):
     image_path = f'static/images/{image}.jpg'
-    image_info = crp.cropImage(image_path, [2, 2])
+    image_info = crp.cropImage(image_path, [4, 4])
     return render_template('game.html', image_info=image_info)
     
 
