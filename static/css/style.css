@@ -5,11 +5,8 @@ body, html {
     padding: 0 !important;
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> settings_part2
 .row {
     margin-right: 0 !important;
 }
@@ -72,7 +69,6 @@ h2 {
     cursor: pointer;
 }
 
-<<<<<<< HEAD
 .card-text{
     text-align: center;
     font-size: 30px;
@@ -106,7 +102,6 @@ i {
 i:hover {
     color: dodgerblue;
 }
-=======
 #game-mode {
     margin: 3em auto 1em;
     color: #282828;
@@ -150,4 +145,3 @@ i:hover {
 .select-puzzle:hover {
     cursor: pointer;
 }
->>>>>>> settings_part2
