@@ -3,7 +3,7 @@ from flask_ngrok import run_with_ngrok
 import sys
 # sys.path.append('/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static/images')
 # sys.path.append("D:\Codecool\JigsawPuzzle\static\images")
-sys.path.append("/Users/Silviu/Documents/Codecool/web_module/TW4_web/JigsawPuzzle/static")
+sys.path.append("/Users/Silviu/Documents/Codecool/web_module/TW4_web/JigsawPuzzle/static/images")
 import crop_image as crp
 
 app = Flask(__name__)
