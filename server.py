@@ -6,7 +6,7 @@ sys.path.append('/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static/im
 import crop_image as crp
 
 app = Flask(__name__)
-working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
+working_path = '/Users/Silviu/Documents/Codecool/web_module/TW4_web/JigsawPuzzle/static'
 
 
 
