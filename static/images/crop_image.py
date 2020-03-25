@@ -4,6 +4,7 @@ import random
 import shutil
 
 image_info = {}
+working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
 
 
 def cropImage(image_path, puzzle_dimensions):
@@ -49,16 +50,18 @@ def create_folder(image_path):
     IMG_PATH = 0
     IMG_NAME = -1
     folder_name = image_path.split('.')[IMG_PATH].split('/')[IMG_NAME].replace('\\', '')
-    pieces_folder_path = f'static/{folder_name}_pieces'
+    x = folder_name + "_pieces"
+    pieces_folder_path = f'{working_path}/{folder_name}_pieces'
+
     try:
         os.mkdir(pieces_folder_path)
     except OSError:
         shutil.rmtree(pieces_folder_path, ignore_errors=True)
         os.mkdir(pieces_folder_path)
-        image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path})
+        image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path, 'folder_name': x})
         return pieces_folder_path
     else:
-        image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path})
+        image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path, 'folder_name': x})
         return pieces_folder_path
 
 

@@ -65,7 +65,7 @@
                                 padding: 10px;">
             {% for piece_id in image_info['pieces_ids'] %}
             <img id="piece" data-piece-id="{{ piece_id }}" 
-                    src="/{{ image_info['folder_path'] }}/{{ piece_id }}.jpeg" 
+                    src="/static/{{image_info['folder_name']}}/{{ piece_id }}.jpeg"
                     width="70" height="70"
                     style="box-shadow: 0 0 10px #282828; cursor: pointer;">
             {% endfor %}
