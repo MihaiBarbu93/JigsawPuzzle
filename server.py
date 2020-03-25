@@ -21,7 +21,7 @@ def index():
 
 @app.route('/settings/<category>')
 def settings(category):
-    return render_template('settings.html')
+    return render_template('settings.html', category=category)
 
 
 @app.route('/game/<image>')

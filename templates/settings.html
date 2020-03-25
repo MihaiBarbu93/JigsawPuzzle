@@ -9,9 +9,9 @@
 </div>
 <div class="row">
     <div id ="difficulty-options" class="col-sm-6 text-center">
-        <div id="test" class="difficulty" data-tiles="16">4 x 4</div>
-        <div class="difficulty" data-tiles="32">8 x 8</div>
-        <div class="difficulty" data-tiles="64">12 x 12</div>
+        <div id="test" class="difficulty" data-tiles="4,4">4 x 4</div>
+        <div class="difficulty" data-tiles="8,8">8 x 8</div>
+        <div class="difficulty" data-tiles="12,12">12 x 12</div>
     </div>
 </div>
 
@@ -20,10 +20,10 @@
         <!-- <p class="game-mode-info">Select the game mode</p> -->
         <form class="game-mode-form">
             <label class="radio-inline">
-                <input type="radio" name="optradio" value="single" checked="checked">Single Player
+                <input class="radio-button" type="radio" name="optradio" value="single" checked="checked">Single Player
             </label>
             <label class="radio-inline">
-                <input type="radio" name="optradio" value="matchup">Matchup
+                <input class="radio-button" type="radio" name="optradio" value="matchup">Matchup
             </label>
         </form>
     </div>
@@ -63,44 +63,12 @@
                 </div>
             </div>
         </div>
-        <div class="select-puzzle">
-            <div class="card" style="width: 18rem;">
-                <img  class="card-img-top select-puzzle" data-image-name="javra4" src="{{url_for('static', filename='images/puppy.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Caine</h5>
-                </div>
-            </div>
-        </div>
-        <div class="select-puzzle">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top select-puzzle" data-image-name="javra5" src="{{url_for('static', filename='images/puppy.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Caine</h5>
-                </div>
-            </div>
-        </div>
-        <div class="select-puzzle">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top select-puzzle" data-image-name="javra6" src="{{url_for('static', filename='images/puppy.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Caine</h5>
-                </div>
-            </div>
-        </div>
-        <div class="select-puzzle">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top select-puzzle" data-image-name="javra7" src="{{url_for('static', filename='images/puppy.jpg')}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Caine</h5>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-sm-4 start-button-container">
-        <a id ="start-button-link" href="/game/">
+        <a id ="start-button-link" href="/game/"  data-category={{category}}>
         <button class="btn btn-primary start-game-button">Start Puzzle</button>
         </a>
     </div>
