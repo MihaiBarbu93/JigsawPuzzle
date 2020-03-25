@@ -51,7 +51,7 @@ const gameStart = (tiles_number) => {
 
 
 function getCategory(){
-    let categories=document.querySelectorAll(".category_select")
+    let categories = document.querySelectorAll(".category_select")
     for(let catg of categories){
         catg.addEventListener('click',function (event) {
             let catgName=catg.dataset.category;
@@ -63,14 +63,31 @@ getCategory()
 
 
 function getImage() {
-  let Images = document.querySelectorAll(".select-puzzle");
-  for (let img of Images) {
-    img.addEventListener("click", function(event) {
-      let imgName = img.dataset.imageName;
-      img.href += imgName ;
+
+    let images = document.querySelectorAll(".card-img-top");
+    let button = document.getElementById("start-button-link");
+    const initialHref = button.href;
+
+
+    document.addEventListener('click', function () {
+
+        if (!event.target.classList.contains("card-img-top")) return;  
+        
+        event.target.classList.add("selected-puzzle")
+        for (let i = 0; i < images.length; i++) {
+            if (images[i] === event.target) {
+                button.href = initialHref;
+                let imgName = images[i].dataset.imageName;
+                console.log(images[i].dataset.imageName)
+                button.href += imgName;
+                continue;        
+            } 
+            images[i].classList.remove('selected-puzzle');
+        } console.log(button.href);
     });
-  }
 }
+
+
 getImage();
 
 function draw(m,n) {
