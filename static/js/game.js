@@ -9,7 +9,7 @@ function redirectHome(){
 
 
 function restartGame(){
-    var response = confirm('Are you sure you want to restart game? All progress will be lost!')
+    var response = confirm('All progress will be lost! Are you sure you want to restart game? ')
     if(response){
         window.location.href = currentURL
     }else{
