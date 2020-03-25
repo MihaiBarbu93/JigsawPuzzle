@@ -36,31 +36,84 @@ function getImage() {
   }
 }
 getImage();
-
-
 choseDifficulty()
 
-function draw(m,n) {
-    var canvas = document.getElementById("myCanvas");
-    var canvas_text = canvas.getContext("2d");
-    var img = document.getElementById("source");
-    let h = img.naturalHeight
-    let w = img.naturalWidth
-
-    let start_crop_col = 0
-    let dx = Math.floor(Math.random() * 200);
-    let dy = Math.floor(Math.random() * 200);
+//=============================================================== TESTING =======================================================//
+var draggable = null
 
 
-    for (let j = 0; j<n; j++){
-        for (let i = 0; i<m; i++){
-            canvas_text.drawImage(img,start_crop_row,start_crop_col,w/m,h/n,dx,dy,50,50);
-            dx =Math.floor(Math.random() * 200);
-            dy =Math.floor(Math.random() * 200);
-            start_crop_row += w/m
-            }
-        start_crop_row = 0
-        start_crop_col+=h/n;
-    }}
+var draggables = document.querySelectorAll("#piece")
+for(d of draggables){
+    d.addEventListener('mousedown', setDraggable)
+}
 
-draw(4,4)
+function setDraggable(e){
+    draggable = e.target
+    dragAndDrop(draggable)
+}
+
+
+function dragAndDrop(draggable) {
+    // GET ALL THE PLAYERS - DRAGGABLE AND DROP ZONES
+    
+    var dropzones = document.querySelectorAll('#spot')
+
+        // DRAG START - HIGHLIGHT DROP ZONES WITH CSS CLASS
+        draggable.addEventListener("dragstart", function () {
+        for (let i = 0; i < dropzones.length; i++) {
+            dropzones[i].classList.add("active");
+        }
+        });
+    
+        // DRAG END - REMOVE ALL ADDED ACTIVE & OVER CSS CLASS
+        draggable.addEventListener("dragend", function () {
+        for (let i = 0; i < dropzones.length; i++) {
+            dropzones[i].classList.remove("active");
+            dropzones[i].classList.remove("over");
+        }
+        });
+    
+        // DRAG - AS YOU ARE DRAGGING
+        draggable.addEventListener("drag", function () {
+        // DO SOMETHING... IF YOU WANT
+        });
+    
+
+
+    for (let i = 0; i < dropzones.length; i++) {
+    // DRAG ENTER - HIGHLIGHT THIS ZONE
+    dropzones[i].addEventListener("dragenter", function () {
+        dropzones[i].classList.add("over");
+    });
+
+    // DRAG LEAVE - REMOVE HIGHLIGHT ON THIS ZONE
+    dropzones[i].addEventListener("dragleave", function () {
+        dropzones[i].classList.remove("over");
+    });
+
+    // DRAG OVER - PREVENT THE DEFAULT "DROP", SO WE CAN DO OUR OWN
+    dropzones[i].addEventListener("dragover", function (evt) {
+        evt.preventDefault();
+    });
+
+
+    // ON DROP - MOVE THE DRAGGABLE ELEMENT
+    dropzones[i].addEventListener("drop", function (evt) {
+    
+        evt.preventDefault();
+        // Will move the draggable element only if dropped into a different box
+        
+        if (evt.target != draggable.parentNode && evt.target != draggable) {
+        draggable.parentNode.removeChild(draggable);
+        evt.target.appendChild(draggable);
+        
+        }
+                
+    });
+    }
+    
+    
+}
+
+
+// dragula([document.getElementById('puzzle'), document.getElementById('rightPanel')]);

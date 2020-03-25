@@ -1,2 +1,6 @@
 flask
 flask-ngrok
+pillow
+os
+random
+shutil
