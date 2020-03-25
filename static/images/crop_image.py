@@ -4,7 +4,8 @@ import random
 import shutil
 
 image_info = {}
-working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
+# working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
+working_path = "D:\Codecool\JigsawPuzzle\static"
 
 
 def cropImage(image_path, puzzle_dimensions):
