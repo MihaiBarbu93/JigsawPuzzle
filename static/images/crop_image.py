@@ -42,7 +42,7 @@ def cropImage(image_path, puzzle_dimensions):
 
 
 def save_pieces(cropped_piece, piece_id, folder_path):
-    cropped_piece.save(f'{folder_path}\{piece_id}.jpeg', 'jpeg')
+    cropped_piece.save(f'{folder_path}/{piece_id}.jpeg', 'jpeg')
 
 
 def create_folder(image_path):
