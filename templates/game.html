@@ -49,7 +49,7 @@
         <div id="puzzle" style="background-color: none; width: 285px; height: 285px;
                                 display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">
                             {% for piece_id in image_info['pieces_ids'] %} 
-                            <div id="spot" style="width: 100px; height: 100px; border-color: black; border-style: solid;"></div>  
+                            <div id="spot" style="width: 70px; height: 70px; border-color: black; border-style: solid;"></div>  
                             {% endfor %} 
                             </div>
                                 
@@ -67,7 +67,8 @@
             <img id="piece" data-piece-id="{{ piece_id }}" 
                     src="/static/{{image_info['folder_name']}}/{{ piece_id }}.jpeg"
                     width="70" height="70"
-                    style="box-shadow: 0 0 10px #282828; cursor: pointer;">
+                    style="box-shadow: 0 0 10px #282828; cursor: pointer;"
+                    draggable="true">
             {% endfor %}
       </div>
     </div>

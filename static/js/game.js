@@ -123,6 +123,46 @@ if(currentURL.includes('game')){
     homeButton.addEventListener('click', redirectHome)
     var restartButton = document.getElementById('restart')
     restartButton.addEventListener('click', restartGame)
+
+    const pieces = document.querySelectorAll('#piece');
+    const spots = document.querySelectorAll('#spot');
+
+    let draggedItem = null;
+
+    for (let i = 0; i < pieces.length; i++) {
+        const piece = pieces[i];
+
+        piece.addEventListener('dragstart', function () {
+            draggedItem = piece;
+            setTimeout(function () {
+                piece.setAttribute('hidden', 'true')
+            }, 0)
+        });
+
+        piece.addEventListener('dragend', function () {
+            setTimeout(function () {
+                draggedItem.removeAttribute('hidden');
+                draggedItem = null;
+            }, 0)
+        })
+
+        for (let j = 0; j < spots.length; j++) {
+            const spot = spots[j];
+
+            spot.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+            spot.addEventListener('dragenter', function(e) {
+                e.preventDefault();
+            });
+            spot.addEventListener('drop', function(e) {
+                this.append(draggedItem)
+            });
+        }
+    }
+
+
+
 }else if(currentURL.includes('settings')){
     chooseDifficulty();
     clickGameMode();
@@ -145,81 +185,81 @@ if(currentURL.includes('game')){
 
 
 //=============================================================== TESTING =======================================================//
-var draggable = null
+// var draggable = null
 
 
-var draggables = document.querySelectorAll("#piece")
-for(d of draggables){
-    d.addEventListener('mousedown', setDraggable)
-}
+// var draggables = document.querySelectorAll("#piece")
+// for(d of draggables){
+//     d.addEventListener('mousedown', setDraggable)
+// }
 
-function setDraggable(e){
-    draggable = e.target
-    dragAndDrop(draggable)
-}
+// function setDraggable(e){
+//     draggable = e.target
+//     dragAndDrop(draggable)
+// }
 
 
-function dragAndDrop(draggable) {
-    // GET ALL THE PLAYERS - DRAGGABLE AND DROP ZONES
+// function dragAndDrop(draggable) {
+//     // GET ALL THE PLAYERS - DRAGGABLE AND DROP ZONES
     
-    var dropzones = document.querySelectorAll('#spot')
+//     var dropzones = document.querySelectorAll('#spot')
 
-        // DRAG START - HIGHLIGHT DROP ZONES WITH CSS CLASS
-        draggable.addEventListener("dragstart", function () {
-        for (let i = 0; i < dropzones.length; i++) {
-            dropzones[i].classList.add("active");
-        }
-        });
+//         // DRAG START - HIGHLIGHT DROP ZONES WITH CSS CLASS
+//         draggable.addEventListener("dragstart", function () {
+//         for (let i = 0; i < dropzones.length; i++) {
+//             dropzones[i].classList.add("active");
+//         }
+//         });
     
-        // DRAG END - REMOVE ALL ADDED ACTIVE & OVER CSS CLASS
-        draggable.addEventListener("dragend", function () {
-        for (let i = 0; i < dropzones.length; i++) {
-            dropzones[i].classList.remove("active");
-            dropzones[i].classList.remove("over");
-        }
-        });
+//         // DRAG END - REMOVE ALL ADDED ACTIVE & OVER CSS CLASS
+//         draggable.addEventListener("dragend", function () {
+//         for (let i = 0; i < dropzones.length; i++) {
+//             dropzones[i].classList.remove("active");
+//             dropzones[i].classList.remove("over");
+//         }
+//         });
     
-        // DRAG - AS YOU ARE DRAGGING
-        draggable.addEventListener("drag", function () {
-        // DO SOMETHING... IF YOU WANT
-        });
+//         // DRAG - AS YOU ARE DRAGGING
+//         draggable.addEventListener("drag", function () {
+//         // DO SOMETHING... IF YOU WANT
+//         });
     
 
 
-    for (let i = 0; i < dropzones.length; i++) {
-    // DRAG ENTER - HIGHLIGHT THIS ZONE
-    dropzones[i].addEventListener("dragenter", function () {
-        dropzones[i].classList.add("over");
-    });
+//     for (let i = 0; i < dropzones.length; i++) {
+//     // DRAG ENTER - HIGHLIGHT THIS ZONE
+//     dropzones[i].addEventListener("dragenter", function () {
+//         dropzones[i].classList.add("over");
+//     });
 
-    // DRAG LEAVE - REMOVE HIGHLIGHT ON THIS ZONE
-    dropzones[i].addEventListener("dragleave", function () {
-        dropzones[i].classList.remove("over");
-    });
+//     // DRAG LEAVE - REMOVE HIGHLIGHT ON THIS ZONE
+//     dropzones[i].addEventListener("dragleave", function () {
+//         dropzones[i].classList.remove("over");
+//     });
 
-    // DRAG OVER - PREVENT THE DEFAULT "DROP", SO WE CAN DO OUR OWN
-    dropzones[i].addEventListener("dragover", function (evt) {
-        evt.preventDefault();
-    });
+//     // DRAG OVER - PREVENT THE DEFAULT "DROP", SO WE CAN DO OUR OWN
+//     dropzones[i].addEventListener("dragover", function (evt) {
+//         evt.preventDefault();
+//     });
 
 
-    // ON DROP - MOVE THE DRAGGABLE ELEMENT
-    dropzones[i].addEventListener("drop", function (evt) {
+//     // ON DROP - MOVE THE DRAGGABLE ELEMENT
+//     dropzones[i].addEventListener("drop", function (evt) {
     
-        evt.preventDefault();
-        // Will move the draggable element only if dropped into a different box
+//         evt.preventDefault();
+//         // Will move the draggable element only if dropped into a different box
         
-        if (evt.target != draggable.parentNode && evt.target != draggable) {
-        draggable.parentNode.removeChild(draggable);
-        evt.target.appendChild(draggable);
+//         if (evt.target != draggable.parentNode && evt.target != draggable) {
+//         draggable.parentNode.removeChild(draggable);
+//         evt.target.appendChild(draggable);
         
-        }
+//         }
                 
-    });
-    }
+//     });
+//     }
     
     
-}
+// }
 
 
 // dragula([document.getElementById('puzzle'), document.getElementById('rightPanel')]);
