@@ -26,9 +26,11 @@ def settings(category):
 
 @app.route('/game/<image>')
 def game(image):
+    puzzle_height = 7
+    puzzle_width = 9
     image_path = f'{working_path}/images/{image}.jpg'
-    image_info = crp.cropImage(image_path, [4, 4])
-    print(image_info)
+    image_info = crp.cropImage(image_path, [puzzle_width, puzzle_height])
+    image_info.update({'img_width': puzzle_width, 'img_height': puzzle_height})
     return render_template('game.html', image_info=image_info)
     
 

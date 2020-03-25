@@ -27,10 +27,10 @@ def cropImage(image_path, puzzle_dimensions):
     # Iterate through rows and columns and crop image
     piece_id = 0
     pieces_ids = []
-    for row in range(PDX):
+    for row in range(PDY):
         startX = 0
         endX = startX + piece_width
-        for col in range(PDY):
+        for col in range(PDX):
             cropped_piece = image.crop((startX, startY, endX, endY))
             save_pieces(cropped_piece, piece_id, folder_path)
             startX = startX + piece_width
