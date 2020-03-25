@@ -5,6 +5,8 @@ sys.path.append('/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static/im
 import crop_image as crp
 
 app = Flask(__name__)
+working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
+
 
 
 @app.route('/', methods=['GET'])
@@ -20,9 +22,9 @@ def settings(category):
 
 @app.route('/game/<image>')
 def game(image):
-    # image_path = f'static/images/{image}.jpg'
-    image_path = '/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static/images/puppy.jpg'
+    image_path = f'{working_path}/images/{image}.jpg'
     image_info = crp.cropImage(image_path, [4, 4])
+    print(image_info)
     return render_template('game.html', image_info=image_info)
     
 
