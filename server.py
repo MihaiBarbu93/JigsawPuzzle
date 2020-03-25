@@ -19,7 +19,6 @@ def index():
 
 @app.route('/settings/<category>')
 def settings(category):
-
     return render_template('settings.html')
 
 
