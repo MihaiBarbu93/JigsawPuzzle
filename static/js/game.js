@@ -1,6 +1,46 @@
 
-const choseDifficulty = () => {
+var currentURL = document.URL
+var homeButton = document.getElementById('home')
+homeButton.addEventListener('click', redirectHome)
 
+function redirectHome(e){
+    var response = confirm('The game will close and you will lose your progress! Do you want to continue?')
+    if(response){
+        window.location.href = '/'
+    }else{
+        return
+    }
+    
+    
+}
+
+if(currentURL.includes('game')){
+    var seconds = 0
+    var timeCounter = setInterval(incrementSeconds, 1000)
+    timeCounter()
+}
+
+
+function incrementSeconds(){
+    var timer = document.getElementById('timer')
+    seconds += 1
+    if(seconds >= 60){
+        var minutes = Math.floor(seconds / 60);
+        var sec = seconds - minutes * 60;
+        var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(sec,'0',2);
+    }else{
+        var finalTime = '00:'+seconds
+    }
+    timer.textContent = finalTime
+
+}
+
+function str_pad_left(string,pad,length) {
+    return (new Array(length+1).join(pad)+string).slice(-length);
+}
+
+
+const chooseDifficulty = () => {
     document.addEventListener('click', function () {
 
         if (!event.target.classList.contains('difficulty')) return;
@@ -16,9 +56,6 @@ const choseDifficulty = () => {
     });
 }
 
-choseDifficulty();
-
-
 const clickGameMode = () => {
     radioButtons = document.getElementsByTagName("input");
     for (radioButton of radioButtons) {
@@ -28,11 +65,7 @@ const clickGameMode = () => {
     }
 }
 
-clickGameMode();
-
-
 const getGameMode = () => {
-
     radioButtons = document.getElementsByTagName('input')
     for (radioButton of radioButtons) {
         if (radioButton.checked) {
@@ -41,14 +74,9 @@ const getGameMode = () => {
     }
 }
 
-getGameMode();
-
-
 const gameStart = (tiles_number) => {
-
     console.log(tiles_number);
 }
-
 
 function getCategory(){
     let categories = document.querySelectorAll(".category_select")
@@ -59,20 +87,13 @@ function getCategory(){
         })
     }
 }
-getCategory()
-
 
 function getImage() {
-
     let images = document.querySelectorAll(".card-img-top");
     let button = document.getElementById("start-button-link");
     const initialHref = button.href;
-
-
     document.addEventListener('click', function () {
-
         if (!event.target.classList.contains("card-img-top")) return;  
-        
         event.target.classList.add("selected-puzzle")
         for (let i = 0; i < images.length; i++) {
             if (images[i] === event.target) {
@@ -86,8 +107,22 @@ function getImage() {
         } console.log(button.href);
     });
 }
+
+chooseDifficulty();
+clickGameMode();
+getGameMode();
+getCategory()
 getImage();
 choseDifficulty()
+
+
+
+
+
+
+
+
+
 
 //=============================================================== TESTING =======================================================//
 var draggable = null
