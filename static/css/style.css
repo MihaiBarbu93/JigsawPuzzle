@@ -91,6 +91,7 @@ h2 {
 }
 .category_select{
     color: red;
+    transition: all 0.3s;
 }
 .category_select:hover{
     cursor: pointer;
