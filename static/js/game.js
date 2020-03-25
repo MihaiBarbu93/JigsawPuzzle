@@ -1,23 +1,20 @@
-
-var currentURL = document.URL
-var homeButton = document.getElementById('home')
-homeButton.addEventListener('click', redirectHome)
-
-function redirectHome(e){
+function redirectHome(){
     var response = confirm('The game will close and you will lose your progress! Do you want to continue?')
     if(response){
         window.location.href = '/'
     }else{
         return
-    }
-    
-    
+    } 
 }
 
-if(currentURL.includes('game')){
-    var seconds = 0
-    var timeCounter = setInterval(incrementSeconds, 1000)
-    timeCounter()
+
+function restartGame(){
+    var response = confirm('Are you sure you want to restart game? All progress will be lost!')
+    if(response){
+        window.location.href = currentURL
+    }else{
+        return
+    } 
 }
 
 
@@ -34,6 +31,7 @@ function incrementSeconds(){
     timer.textContent = finalTime
 
 }
+
 
 function str_pad_left(string,pad,length) {
     return (new Array(length+1).join(pad)+string).slice(-length);
@@ -56,6 +54,7 @@ const chooseDifficulty = () => {
     });
 }
 
+
 const clickGameMode = () => {
     radioButtons = document.getElementsByTagName("input");
     for (radioButton of radioButtons) {
@@ -64,6 +63,7 @@ const clickGameMode = () => {
         })
     }
 }
+
 
 const getGameMode = () => {
     radioButtons = document.getElementsByTagName('input')
@@ -74,9 +74,11 @@ const getGameMode = () => {
     }
 }
 
+
 const gameStart = (tiles_number) => {
     console.log(tiles_number);
 }
+
 
 function getCategory(){
     let categories = document.querySelectorAll(".category_select")
@@ -87,6 +89,7 @@ function getCategory(){
         })
     }
 }
+
 
 function getImage() {
     let images = document.querySelectorAll(".card-img-top");
@@ -108,12 +111,29 @@ function getImage() {
     });
 }
 
-chooseDifficulty();
-clickGameMode();
-getGameMode();
-getCategory()
-getImage();
-choseDifficulty()
+
+var currentURL = document.URL
+
+if(currentURL.includes('game')){
+    console.log('GAME')
+    var seconds = 0
+    var timeCounter = setInterval(incrementSeconds, 1000)
+    timeCounter
+    var homeButton = document.getElementById('home')
+    homeButton.addEventListener('click', redirectHome)
+    var restartButton = document.getElementById('restart')
+    restartButton.addEventListener('click', restartGame)
+}else if(currentURL.includes('settings')){
+    chooseDifficulty();
+    clickGameMode();
+    getImage();
+    choseDifficulty()
+    getGameMode();
+}else{
+    getCategory()
+}
+
+
 
 
 
