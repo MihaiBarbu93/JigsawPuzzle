@@ -10,9 +10,45 @@ const choseDifficulty = () => {
         for (let i = 0; i < options.length; i++) {
             if (options[i] === event.target) continue;
             options[i].classList.remove('selected-difficulty');
+        let tiles_number = event.target.dataset.tiles;
+        gameStart(tiles_number);    
         }
     });
 }
+
+choseDifficulty();
+
+
+const clickGameMode = () => {
+    radioButtons = document.getElementsByTagName("input");
+    for (radioButton of radioButtons) {
+        radioButton.addEventListener('click', function () {
+            console.log(event.target.value)
+        })
+    }
+}
+
+clickGameMode();
+
+
+const getGameMode = () => {
+
+    radioButtons = document.getElementsByTagName('input')
+    for (radioButton of radioButtons) {
+        if (radioButton.checked) {
+            console.log(radioButton.value)
+        }
+    }
+}
+
+getGameMode();
+
+
+const gameStart = (tiles_number) => {
+
+    console.log(tiles_number);
+}
+
 
 function getCategory(){
     let categories=document.querySelectorAll(".category_select")
@@ -36,9 +72,6 @@ function getImage() {
   }
 }
 getImage();
-
-
-choseDifficulty()
 
 function draw(m,n) {
     var canvas = document.getElementById("myCanvas");
