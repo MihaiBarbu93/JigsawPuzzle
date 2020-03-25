@@ -146,6 +146,10 @@ i:hover {
     margin-bottom: 4em;
 }
 
+.select-puzzle {
+    display: inline-block;
+}
+
 .select-puzzle:hover {
     cursor: pointer;
 }
@@ -163,4 +167,21 @@ i:hover {
 #piece:hover{
     height: 75px;
     width: 75px;
+}
+.start-button-container {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2em !important;
+}
+
+.start-game-button {
+    background-color: dodgerblue;
+    padding: 10px;
+    font-size: 1.4em;
+}
+
+.start-game-button:hover {
+    background-color: #0073e6;
+    padding: 10px;
+    font-size: 1.4em;
 }
