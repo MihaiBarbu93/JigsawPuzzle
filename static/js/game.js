@@ -1,3 +1,5 @@
+var ver = true
+
 function redirectHome(){
     var response = confirm('The game will close and you will lose your progress! Do you want to continue?')
     if(response){
@@ -19,7 +21,7 @@ function restartGame(){
 
 
 function incrementSeconds(){
-    var timer = document.getElementById('timer')
+    let timer = document.getElementById('timer')
     seconds += 1
     if(seconds >= 60){
         var minutes = Math.floor(seconds / 60);
@@ -29,6 +31,7 @@ function incrementSeconds(){
         var finalTime = '00:'+seconds
     }
     timer.textContent = finalTime
+    return finalTime
 
 }
 
@@ -118,10 +121,7 @@ function getCategory(){
     }
 }
 
- function winnerMessage() {
-        var modalMessage = document.getElementById("myModalMessage");
-        modalMessage.style.display = "block";
-    }
+
 
 //=============================================================== TESTING =======================================================//
 
@@ -179,6 +179,8 @@ function dragAndDrop() {
     }
 
 }
+
+
 function getSpotSize() {
     let spots= document.getElementById("spot");
     let dif = spots.dataset.dificulty;
@@ -186,6 +188,19 @@ function getSpotSize() {
     return size;
 
 }
+
+function winnerMessage() {
+        var modalMessage = document.getElementById("myModalMessage");
+        let time = document.getElementById("time")
+        modalMessage.style.display = "block";
+        var homeButton = document.getElementById('home1')
+        homeButton.addEventListener('click', function () {
+            window.location.href = '/'
+
+        })
+        time.textContent = incrementSeconds()
+        clearInterval(interval)
+    }
 
 
 
@@ -204,13 +219,13 @@ if (currentURL.includes('game')) {
         spot.style.height=size+"px";
     }
     var seconds = 0
-    var timeCounter = setInterval(incrementSeconds, 1000)
-    timeCounter
+    var interval = setInterval(incrementSeconds, 1000)
     var homeButton = document.getElementById('home')
     homeButton.addEventListener('click', redirectHome)
     var restartButton = document.getElementById('restart')
     restartButton.addEventListener('click', restartGame)
     dragAndDrop()
+
 
 }else if (currentURL.includes('settings')){
     getAllGameSettings()
