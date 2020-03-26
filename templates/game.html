@@ -36,21 +36,13 @@
         </div>
     </div>
     <div class="row" style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 2em">
-      <div id="leftPanel" class="col-8" style="border: solid; 
-                                border-color: #282828; 
-                                height: 600px; 
-                                box-shadow: 0 0 10px #282828;
-                                background-color: #e0a73c;
-                                margin-right: 5px;">
         <div id="puzzle" style="background-color: #e0a73c;
                                 display: grid; grid-template-columns: repeat({{ image_info['img_height'] }}, 1fr);">
                             {% for id in table_grid_ids %}
-                            <div id="spot" data-dificulty="" data-spot-id="{{ id }}" style="width: 70px; height: 70px; border-color: black; border-style: solid;"></div>
+                            <div id="spot" data-dificulty="" data-spot-id="{{ id }}" style="width: 70px; height: 70px; border-color: black; border-style: solid; box-sizing: content-box;"></div>
                             
                             {% endfor %} 
                             </div>
-                                
-      </div>
 
       <div id="rightPanel" class="col-3" style="border: solid; 
                                 border-color: #282828; 
