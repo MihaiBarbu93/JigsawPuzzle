@@ -118,6 +118,11 @@ function getCategory(){
     }
 }
 
+ function winnerMessage() {
+        var modalMessage = document.getElementById("myModalMessage");
+        modalMessage.style.display = "block";
+    }
+
 //=============================================================== TESTING =======================================================//
 
 function dragAndDrop() {
@@ -165,7 +170,7 @@ function dragAndDrop() {
                      left_pieces = (counter/pieces.length)
                     live_count.innerText = Math.floor(left_pieces).toString()
                     if (counter===check_counter){
-                        alert('Great job')
+                        winnerMessage()
                     }
                     }
             });
