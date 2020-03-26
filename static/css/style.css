@@ -259,3 +259,11 @@ i:hover {
  #puzzle{
      box-sizing: border-box;
  }
+
+ #matchup-form {
+     margin: 0 auto;
+     text-align: center;
+     color: #282828;
+     visibility: hidden;
+     display: none;
+ }
