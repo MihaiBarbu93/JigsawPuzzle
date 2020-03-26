@@ -8,7 +8,6 @@
                                 margin-right: 5px;
                                 display: flex;
                                 justify-content: space-around;">
-                                
          <div class="col-10" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id='home' class="fas fa-home fa-3x"></i></div>
          <div class="col-1" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id="restart" class="fas fa-redo fa-3x"></i></div>
          <div class="col-1" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id="eye" data-state="closed" class="fas fa-eye-slash fa-3x" onclick="seeImage()"></i></div>
@@ -36,21 +35,21 @@
                                         box-shadow: 0 0 10px #222222;">49</div>
         </div>
     </div>
-    <div class="row" style="display: flex; justify-content: space-around; margin-top: 20px;">
-      <div id="leftPanel" class="col-8" style="border: solid; 
-                                border-color: #282828; 
-                                height: 600px; 
-                                box-shadow: 0 0 10px #282828;
-                                background-color: #e0a73c;
-                                margin-right: 5px;">
-        <div id="puzzle" style="background-color: none; width: 285px; height: 285px;
+    <div class="row" style="display: flex; justify-content: space-around; margin-top: 20px; margin-bottom: 2em">
+{#      <div id="leftPanel" class="col-8" style="border: solid; #}
+{#                                border-color: #282828; #}
+{#                                height: 600px; #}
+{#                                box-shadow: 0 0 10px #282828;#}
+{#                                background-color: #e0a73c;#}
+{#                                margin-right: 5px;">#}
+        <div id="puzzle" style="background-color: #e0a73c;
                                 display: grid; grid-template-columns: repeat({{ image_info['img_height'] }}, 1fr);">
                             {% for piece_id in image_info['pieces_ids'] %} 
-                            <div id="spot" style="width: 70px; height: 70px; border-color: black; border-style: solid;"></div>  
+                            <div id="spot" data-dificulty="" style="width: 70px; height: 70px; border-color: black; border-style: solid; box-sizing: content-box"></div>
                             {% endfor %} 
                             </div>
                                 
-        </div>
+{#        </div>#}
 
       <div id="rightPanel" class="col-3" style="border: solid; 
                                 border-color: #282828; 
@@ -64,7 +63,6 @@
             {% for piece_id in image_info['pieces_ids'] %}
             <img id="piece" data-piece-id="{{ piece_id }}" 
                     src="/static/{{image_info['folder_name']}}/{{ piece_id }}.jpeg"
-                    width="70" height="70"
                     style="box-shadow: 0 0 10px #282828; cursor: pointer;"
                     draggable="true">
             {% endfor %}
