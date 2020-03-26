@@ -5,8 +5,9 @@ import shutil
 
 image_info = {}
 # working_path='/home/alex/Documents/WEB MODULE 2/JIGSAW/JigsawPuzzle/static'
-working_path = "D:\Codecool\JigsawPuzzle\static"
+# working_path = "D:\Codecool\JigsawPuzzle\static"
 # working_path = "/Users/Silviu/Documents/Codecool/web_module/TW4_web/JigsawPuzzle/static"
+working_path = "/home/www/Desktop/webModule/TWW4/JigsawPuzzle/static"
 
 
 def cropImage(image_path, puzzle_dimensions):
