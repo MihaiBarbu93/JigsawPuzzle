@@ -31,11 +31,8 @@ function incrementSeconds(){
         var finalTime = '00:'+seconds
     }
     timer.textContent = finalTime
-<<<<<<< HEAD
     return finalTime
 
-=======
->>>>>>> matchup
 }
 
 
