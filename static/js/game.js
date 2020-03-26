@@ -123,9 +123,12 @@ function getCategory(){
 function dragAndDrop() {
     const pieces = document.querySelectorAll('#piece');
     const spots = document.querySelectorAll('#spot');
-    let counter = pieces.length
-    let check_counter = counter**2 -counter
+    let counter = pieces.length**2;
+    let check_counter = 0;
     let draggedItem = null;
+    let left_pieces = counter;
+    let live_count = document.getElementById('cs')
+    live_count.innerText += pieces.length.toString()
 
     for (let i = 0; i < pieces.length; i++) {
         const piece = pieces[i];
@@ -144,7 +147,7 @@ function dragAndDrop() {
 
 
             }, 0)
-        })
+        });
 
         for (let j = 0; j < spots.length; j++) {
             const spot = spots[j];
@@ -157,22 +160,22 @@ function dragAndDrop() {
             });
             spot.addEventListener('drop', function(e) {
                 if (draggedItem.dataset.pieceId === this.dataset.spotId){
-                    console.log(draggedItem.dataset.pieceId)
-                    console.log(this.dataset.spotId)
-                    this.append(draggedItem)
-                     counter--
-                    console.log(counter)
-                    if (counter===-check_counter){
+                    this.append(draggedItem);
+                    counter--;
+                     left_pieces = (counter/pieces.length)
+                    live_count.innerText = Math.floor(left_pieces).toString()
+                    if (counter===check_counter){
                         alert('Great job')
-
-                    }}
-
+                    }
+                    }
             });
         }
+
     }
+
 }
 function getSpotSize() {
-    let spots= document.getElementById("spot")
+    let spots= document.getElementById("spot");
     let dif = spots.dataset.dificulty;
     let size = 600 / parseInt(dif);
     return size;
