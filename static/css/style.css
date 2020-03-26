@@ -166,10 +166,6 @@ i:hover {
     transition: all 0.3s ease;
 }
 
-#piece:hover{
-    height: 75px;
-    width: 75px;
-}
 .start-button-container {
     margin: 0 auto;
     text-align: center;
@@ -211,8 +207,8 @@ i:hover {
   margin: 7% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  height: 80%;
+  width: 640px; /* Could be more or less, depending on screen size */
+  height: 640px;
   line-height: 6;
 }
 
@@ -237,3 +233,6 @@ i:hover {
     max-height: 100%;
     alignment: center;
 }
+ #puzzle{
+     box-sizing: border-box;
+ }

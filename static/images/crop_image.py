@@ -16,12 +16,12 @@ def cropImage(image_path, puzzle_dimensions):
     # Open image
     image = Image.open(image_path)
     # Get image dimensions
-    width, height = image.size
+    width, height = [600,600]
     PDX = puzzle_dimensions[0]
     PDY = puzzle_dimensions[1]
     # Set piece of puzzle dimensions (-5px for safety)
-    piece_width = round(width / PDX) - 5 
-    piece_height = round(height / PDY) - 5
+    piece_width = round(width / PDX)
+    piece_height = round(height / PDY)
     # Define start and end Y
     startY = 0
     endY = startY + piece_height

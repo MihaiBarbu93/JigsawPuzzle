@@ -96,11 +96,16 @@ const getAllGameSettings = () => {
                 return
             }
             else if (gameSettingsUpdated[2] != null && gameSettingsUpdated[0] != null) {
-                button.href = `/game/${gameSettingsUpdated[2]}`;
+                var height=gameSettingsUpdated[0][0]
+                var width=gameSettingsUpdated[0][1]
+                button.href = `/game/${gameSettingsUpdated[2]}` + `?puzzleHeight=${height}&puzzleWidth=${width}`;
             }
         }
+        localStorage.setItem("puzzleWidth", gameSettingsUpdated[0][0])
+        console.log("asd" + localStorage.getItem("puzzleWidth"))
     })
 }
+
 
 
 function getCategory(){
@@ -166,11 +171,30 @@ function dragAndDrop() {
         }
     }
 }
+function getSpotSize() {
+    let spots= document.getElementById("spot")
+    let dif = spots.dataset.dificulty;
+    let size = 600 / parseInt(dif);
+    return size;
+
+}
+
 
 
 var currentURL = document.URL
 
 if (currentURL.includes('game')) {
+    var puzzleWidth = localStorage.getItem("puzzleWidth")
+    var spots = document.querySelectorAll("#spot");
+    for (let spot of spots ){
+        spot.dataset.dificulty=puzzleWidth;
+    }
+    let size = getSpotSize();
+    var spots = document.querySelectorAll("#spot");
+    for (let spot of spots ){
+        spot.style.width=size+"px";
+        spot.style.height=size+"px";
+    }
     var seconds = 0
     var timeCounter = setInterval(incrementSeconds, 1000)
     timeCounter
@@ -180,7 +204,6 @@ if (currentURL.includes('game')) {
     restartButton.addEventListener('click', restartGame)
     dragAndDrop()
 
-    var leftPanel = document.getElementById('')
 }else if (currentURL.includes('settings')){
     getAllGameSettings()
 }else  {
