@@ -23,45 +23,44 @@ body, html {
 
 h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
-    font-size: 2.4em !important;
+    font-size: 1.4em !important;
     color: #282828;
     font-weight: 700!important;
     text-transform: uppercase;
 }
 
 #difficulty-options {
-    margin-top: 4em !important;
+    margin-top: 2em !important;
     margin: 0 auto;
     text-align: center;
     color: #282828;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 700;
     display: flex;
     justify-content: space-around;
 }
 
 .selected-difficulty {
-    border: 4px solid #282828;
+    border: 6px solid #282828;
     background-color: #282828;
     color: #ffbf44;
-    padding: 16px;
+    padding: 12px;
     width: 25%;
     min-width: 150px;
 }
 
 .difficulty {
     border: 6px solid #282828;
-    padding: 16px;
+    padding: 12px;
     width: 25%;
     min-width: 150px;
-    transition: ease 0.3s;
 }
 
 .difficulty:hover {
-    border: 4px solid #282828;
+    border: 6px solid #282828;
     background-color: #282828;
     color: #ffbf44;
-    padding: 16px;
+    padding: 12px;
     width: 25%;
     min-width: 150px;
     cursor: pointer;
@@ -90,8 +89,7 @@ h2 {
     padding: 0.75rem;
 }
 .category_select{
-    color: red;
-    transition: all 0.3s;
+    color: dodgerblue;
 }
 .category_select:hover{
     cursor: pointer;
@@ -110,7 +108,7 @@ i:hover {
     margin: 3em auto 1em;
     color: #282828;
     padding: 10px;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .game-mode-form {
@@ -139,7 +137,7 @@ i:hover {
 }
 
 .card h5 {
-    font-size: 1.8em;
+    font-size: 1.2em;
 }
 
 .puzzles {
@@ -156,7 +154,7 @@ i:hover {
 }
 
 .selected-puzzle {
-    border: 4px solid red;
+    border: 4px solid dodgerblue;
 }
 
 .category_cards{
@@ -180,14 +178,15 @@ i:hover {
 
 .start-game-button {
     background-color: dodgerblue;
-    padding: 10px;
-    font-size: 1.4em;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    transition: ease 0.3s;
 }
 
 .start-game-button:hover {
     background-color: #0073e6;
-    padding: 10px;
-    font-size: 1.4em;
+    padding: 10px 20px;
+    font-size: 1.2em;
 }
 
 .modal {
