@@ -45,8 +45,8 @@
                                 margin-right: 5px;">
         <div id="puzzle" style="background-color: none; width: 285px; height: 285px;
                                 display: grid; grid-template-columns: repeat({{ image_info['img_height'] }}, 1fr);">
-                            {% for piece_id in image_info['pieces_ids'] %} 
-                            <div id="spot" style="width: 70px; height: 70px; border-color: black; border-style: solid;"></div>  
+                            {% for id in table_grid_ids %}
+                            <div id="spot" data-spot-id="{{ id }}" style="width: 70px; height: 70px; border-color: black; border-style: solid;"></div>
                             {% endfor %} 
                             </div>
                                 

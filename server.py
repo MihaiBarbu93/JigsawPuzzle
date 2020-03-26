@@ -28,12 +28,13 @@ def settings(category):
 
 @app.route('/game/<category>/<image>')
 def game(image, category):
-    puzzle_height = 7
-    puzzle_width = 9
+    puzzle_height = 2
+    puzzle_width = 2
     image_path = f'{working_path}/images/{category}/{image}.jpeg'
     image_info = crp.cropImage(image_path, [puzzle_width, puzzle_height])
     image_info.update({'img_width': puzzle_width, 'img_height': puzzle_height})
-    return render_template('game.html', image_info=image_info,image_name=image, category=category)
+    table_grid_ids = sorted(image_info['pieces_ids'])
+    return render_template('game.html', image_info=image_info,image_name=image, category=category, table_grid_ids = table_grid_ids)
     
 
 if __name__ == '__main__':

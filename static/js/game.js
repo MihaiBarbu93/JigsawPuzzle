@@ -114,11 +114,12 @@ function getCategory(){
 }
 
 //=============================================================== TESTING =======================================================//
-    
+
 function dragAndDrop() {
     const pieces = document.querySelectorAll('#piece');
     const spots = document.querySelectorAll('#spot');
-
+    let counter = pieces.length
+    let check_counter = counter**2 -counter
     let draggedItem = null;
 
     for (let i = 0; i < pieces.length; i++) {
@@ -135,6 +136,8 @@ function dragAndDrop() {
             setTimeout(function () {
                 draggedItem.removeAttribute('hidden');
                 draggedItem = null;
+
+
             }, 0)
         })
 
@@ -148,7 +151,17 @@ function dragAndDrop() {
                 e.preventDefault();
             });
             spot.addEventListener('drop', function(e) {
-                this.append(draggedItem)
+                if (draggedItem.dataset.pieceId === this.dataset.spotId){
+                    console.log(draggedItem.dataset.pieceId)
+                    console.log(this.dataset.spotId)
+                    this.append(draggedItem)
+                     counter--
+                    console.log(counter)
+                    if (counter===-check_counter){
+                        alert('Great job')
+
+                    }}
+
             });
         }
     }
