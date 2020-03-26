@@ -58,7 +58,7 @@ def create_folder(image_path):
     try:
         os.mkdir(pieces_folder_path)
     except OSError:
-        # shutil.rmtree(pieces_folder_path, ignore_errors=True)
+        shutil.rmtree(pieces_folder_path, ignore_errors=True)
         os.mkdir(pieces_folder_path)
         image_info.update({'image_name': folder_name, 'folder_path': pieces_folder_path, 'folder_name': x})
         return pieces_folder_path
