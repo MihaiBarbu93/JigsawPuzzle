@@ -29,7 +29,6 @@ function incrementSeconds(){
         var finalTime = '00:'+seconds
     }
     timer.textContent = finalTime
-
 }
 
 
@@ -48,7 +47,17 @@ const getAllGameSettings = () => {
 
 
         if (event.target.classList.contains('radio-button')) {
+            let matchupForm = document.getElementById("matchup-form");
+
             gameSettingsUpdated[1] = event.target.value;
+            if (gameSettingsUpdated[1] == "matchup") {
+                matchupForm.style.display = "inline-block";
+                matchupForm.style.visibility = "visible";
+            }
+            else {
+                matchupForm.style.display = "none";
+                matchupForm.style.visibility = "hidden";
+            }
             console.log(gameSettingsUpdated)
         }
 
@@ -82,8 +91,24 @@ const getAllGameSettings = () => {
             console.log(button.href);
             console.log(gameSettingsUpdated)
         }
+        
 
         else if (event.target.classList.contains('start-game-button')) {
+
+            let player1Name = document.getElementById("player1");
+            let player2Name = document.getElementById("player2");
+
+            if (gameSettingsUpdated[1] == "matchup") {
+                let player1 = player1Name.value;
+                let player2 = player2Name.value;
+                if (player1 == "" || player2 == "") {
+                  alert("Please choose the players names");
+                }
+                else {
+                    localStorage.setItem("player1", player1)
+                    localStorage.setItem("player2", player2)
+                }
+            }
 
             if (gameSettingsUpdated[0] == null) {
                 alert("Please select a difficulty level");
@@ -102,7 +127,6 @@ const getAllGameSettings = () => {
             }
         }
         localStorage.setItem("puzzleWidth", gameSettingsUpdated[0][0])
-        console.log("asd" + localStorage.getItem("puzzleWidth"))
     })
 }
 
