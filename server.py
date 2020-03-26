@@ -31,7 +31,7 @@ def game(image):
     image_path = f'{working_path}/images/{image}.jpg'
     image_info = crp.cropImage(image_path, [puzzle_width, puzzle_height])
     image_info.update({'img_width': puzzle_width, 'img_height': puzzle_height})
-    return render_template('game.html', image_info=image_info)
+    return render_template('game.html', image_info=image_info,image_name=image)
     
 
 if __name__ == '__main__':

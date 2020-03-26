@@ -11,10 +11,7 @@
                                 
          <div class="col-10" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id='home' class="fas fa-home fa-3x"></i></div>
          <div class="col-1" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id="restart" class="fas fa-redo fa-3x"></i></div>
-         <div class="col-1" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id="eye" 
-                                                                                            data-state="closed" 
-                                                                                            class="fas fa-eye-slash fa-3x"
-                                                                                            onclick="seeImage()"></i></div>                
+         <div class="col-1" style="color: #282828; text-shadow: 0 0 10px #282828;"><i id="eye" data-state="closed" class="fas fa-eye-slash fa-3x" onclick="seeImage()"></i></div>
         </div>
         <div class="col-3" style="border: solid;
                                     height: 60px;
@@ -73,6 +70,12 @@
             {% endfor %}
       </div>
     </div>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+      <img class="modal_image" src="/static/images/{{ image_name }}.jpg" alt="">
+  </div>
+
+</div>
 </div>
 
 
@@ -82,12 +85,17 @@
 <script>
     function seeImage(){
         let eye = document.getElementById('eye')
-        if(eye.dataset.state == 'closed'){
-            eye.dataset.state = 'opened'
+        if(eye.dataset.state === 'closed'){
             eye.className = 'fas fa-eye fa-3x'
-        }else{
-            eye.dataset.state = 'opened'
-            eye.className = 'fas fa-eye-slash fa-3x'
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                eye.dataset.state="closed"
+                eye.className = 'fas fa-eye-slash fa-3x'
+            }
+            }
         }
     }
 
