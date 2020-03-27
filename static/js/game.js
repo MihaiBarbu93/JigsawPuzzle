@@ -191,13 +191,14 @@ function dragAndDrop() {
             spot.addEventListener('drop', function(e) {
                 if (draggedItem.dataset.pieceId === this.dataset.spotId){
                     this.append(draggedItem);
+                    this.classList.add('correct-piece-placing');
                     counter--;
-                     left_pieces = (counter/pieces.length)
+                    left_pieces = (counter/pieces.length)
                     live_count.innerText = Math.floor(left_pieces).toString()
                     if (counter===check_counter){
                         winnerMessage()
                     }
-                    }
+                }
             });
         }
 

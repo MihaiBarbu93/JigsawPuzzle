@@ -39,7 +39,7 @@
         <div id="puzzle" style="background-color: #e0a73c;
                                 display: grid; grid-template-columns: repeat({{ image_info['img_height'] }}, 1fr);">
                             {% for id in table_grid_ids %}
-                            <div id="spot" data-dificulty="" data-spot-id="{{ id }}" style="width: 70px; height: 70px; border-color: black; border-style: solid; box-sizing: content-box;"></div>
+                            <div id="spot" data-dificulty="" data-spot-id="{{ id }}" style="width: 70px; height: 70px; box-sizing: content-box;"></div>
                             
                             {% endfor %} 
                             </div>
