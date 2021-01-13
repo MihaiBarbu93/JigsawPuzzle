@@ -1,5 +1,5 @@
 # Jigsaw-Puzzle
-Web and SQL with Python / 4th TW week / JigsawPuzzle project
+Web and SQL with Python / 4th TW week / JigsawPuzzle project <br />
 A jigsaw puzzle game with multiple levels of difficulty. Used Python, Flask and JS to built
 the application.
 
